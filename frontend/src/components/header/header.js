@@ -1,8 +1,10 @@
 import {Navbar,Nav,NavDropdown,Button, Form, FormControl} from 'react-bootstrap';
-import {Link,useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import { logout,} from "../../redux/actions/userActions";
+
 let Header=()=>{
 
-      const history=useHistory();
+      
     return <Navbar bg="primary" expand="lg">
     <Navbar.Brand href="#">Secrets</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -18,10 +20,7 @@ let Header=()=>{
         
         <NavDropdown title="Abhishek Kumar" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">My Profile</NavDropdown.Item>
-          <NavDropdown.Item onClick={()=>{
-             localStorage.removeItem("userInfo");
-             history.push("/");
-          }} href="#action4">Logout</NavDropdown.Item>
+          <NavDropdown.Item  href="#action4" onClick={()=>{logout()}}>Logout</NavDropdown.Item>
           
         </NavDropdown>
         
